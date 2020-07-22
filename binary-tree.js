@@ -297,6 +297,34 @@ chainOfCommand()
 // If you had to buy shares in the company on a particular day, and sell the shares on a subsequent day, 
 // write an algorithm to work out what the maximum profit you could make would be.
 
+function maxProfit(arr) {
+     let min = arr[0];
+     let minIndex = arr[0];
+     let max = arr[arr.length-1];
+     let maxIndex = arr[arr.length-1];
+
+     let maxProf = max - min;
+
+     for(let i = 0; i < arr.length; i++) {
+     if(maxIndex > i && maxIndex - arr[i] > maxProf) {
+                    min = arr[i];
+                    minIndex = i;
+                    maxProf = max - min
+
+          }
+          for(let j = i + 1; j < arr.length; j++) {
+               if(arr[j] > max) {
+                              max = arr[j];
+                              maxProf = max - min
+                         }
+                    }
+     }
+     return maxProf;
+}
+
+console.log(maxProfit([128, 97, 121, 123, 98, 97, 105]))
+
+
 module.exports = {
      BinarySearchTree
 }
