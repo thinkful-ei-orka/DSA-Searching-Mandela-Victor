@@ -284,6 +284,7 @@ function chainOfCommand() {
      starTrekBST.insert(8, 'Lt. Cmdr. Crusher');
      starTrekBST.insert(7, 'Lieutenant Selar');
 
+     console.log(starTrekBST)
      console.log(bfs(starTrekBST))
 }
 
