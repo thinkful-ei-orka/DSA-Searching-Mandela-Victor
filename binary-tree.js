@@ -300,24 +300,24 @@ chainOfCommand()
 function maxProfit(arr) {
      let min = arr[0];
      let minIndex = arr[0];
-     let max = arr[arr.length-1];
-     let maxIndex = arr[arr.length-1];
+     let max = arr[arr.length - 1];
+     let maxIndex = arr[arr.length - 1];
 
      let maxProf = max - min;
 
-     for(let i = 0; i < arr.length; i++) {
-     if(maxIndex > i && maxIndex - arr[i] > maxProf) {
-                    min = arr[i];
-                    minIndex = i;
-                    maxProf = max - min
+     for (let i = 0; i < arr.length; i++) {
+          if (maxIndex > i && maxIndex - arr[i] > maxProf) {
+               min = arr[i];
+               minIndex = i;
+               maxProf = max - min
 
           }
-          for(let j = i + 1; j < arr.length; j++) {
-               if(arr[j] > max) {
-                              max = arr[j];
-                              maxProf = max - min
-                         }
-                    }
+          for (let j = i + 1; j < arr.length; j++) {
+               if (arr[j] > max) {
+                    max = arr[j];
+                    maxProf = max - min
+               }
+          }
      }
      return maxProf;
 }
