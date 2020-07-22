@@ -144,38 +144,6 @@ class BinarySearchTree {
           }
           return this.left._findMin();
      }
-
-     bfs(tree, values = []) {
-          const queue = new Queue(); // Assuming a Queue is implemented (refer to previous lesson on Queue)
-          const node = tree.root;
-          queue.enqueue(node);
-          while (queue.length) {
-               const node = queue.dequeue(); //remove from the queue
-               values.push(node.value); // add that value from the queue to an array
-
-               if (node.left) {
-                    queue.enqueue(node.left); //add left child to the queue
-               }
-
-               if (node.right) {
-                    queue.enqueue(node.right); // add right child to the queue
-               }
-          }
-
-          return values;
-     }
-
-     dfs(values=[]) {
-          if (this.left) {
-              values = this.left.dfs(values);
-          }
-          values.push(this.value);
-  
-          if (this.right) {
-              values = this.right.dfs(values);
-          }
-          return values;
-      }
 }
 
 // 5. Implement different tree traversals
@@ -275,8 +243,58 @@ main();
 // ranking officers in their ranking order so that if officers start dropping like flies, 
 // we know who is the next person to take over command.
 
+function bfs(tree, values = []) {
+     const queue = new Queue(); // Assuming a Queue is implemented (refer to previous lesson on Queue)
+     const node = tree
+     queue.enqueue(node);
+     while (queue.first) {
+          const node = queue.dequeue(); //remove from the queue
+          values.push(node.value); // add that value from the queue to an array
+          if (node.left) {
+               queue.enqueue(node.left); //add left child to the queue
+          }
+          if (node.right) {
+               queue.enqueue(node.right); // add right child to the queue
+          }
+     }
+     return values;
+}
+
+// function dfs(values=[]) {
+//      if (this.left) {
+//          values = this.left.dfs(values);
+//      }
+//      values.push(this.value);
+
+//      if (this.right) {
+//          values = this.right.dfs(values);
+//      }
+//      return values;
+//  }
+
+function chainOfCommand() {
+     const starTrekBST = new BinarySearchTree();
+
+     starTrekBST.insert(5, 'Captain Picard');
+     starTrekBST.insert(3, 'Commander Riker');
+     starTrekBST.insert(6, 'Commander Data');
+     starTrekBST.insert(2, 'Lt. Cmdr. Worf');
+     starTrekBST.insert(4, 'Lt. Cmdr. LaForge');
+     starTrekBST.insert(1, 'Lieutenant security-officer');
+     starTrekBST.insert(8, 'Lt. Cmdr. Crusher');
+     starTrekBST.insert(7, 'Lieutenant Selar');
+
+     console.log(bfs(starTrekBST))
+}
+
+console.log(chainOfCommand())
 
 
+// 7. Max profit
+// The share price for a company over a week's trading is as follows: 
+// [128, 97, 121, 123, 98, 97, 105]. 
+// If you had to buy shares in the company on a particular day, and sell the shares on a subsequent day, 
+// write an algorithm to work out what the maximum profit you could make would be.
 
 module.exports = {
      BinarySearchTree
