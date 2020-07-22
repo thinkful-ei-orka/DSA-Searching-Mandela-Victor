@@ -218,7 +218,7 @@ function main() {
      console.log(postOrder(BST))     
 }
 
-main();
+// main();
 
 // 6. Find the next commanding officer
 // Suppose you have a tree representing a command structure of the Starship USS Enterprise.
@@ -287,7 +287,7 @@ function chainOfCommand() {
      console.log(bfs(starTrekBST))
 }
 
-console.log(chainOfCommand())
+chainOfCommand()
 
 
 // 7. Max profit
