@@ -323,6 +323,8 @@ function maxProfit(arr) {
 }
 
 console.log(maxProfit([128, 97, 121, 123, 98, 97, 105]))
+console.log(maxProfit([100, 97, 124, 123, 98, 96, 130]))
+console.log(maxProfit([100, 90, 124, 123, 98, 96, 130]))
 
 
 module.exports = {
