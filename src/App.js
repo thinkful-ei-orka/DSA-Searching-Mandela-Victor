@@ -75,7 +75,6 @@ export default class App extends React.Component {
             <p>Found: {this.state.found ? 'True' : 'False'}</p>
             <p>{this.state.searches} Searches</p>
           </div>)}
-
       </main>
     );
   }
